@@ -1,10 +1,8 @@
 #! /bin/bash
 
 #Author : Akash Suchak
-#Calculate Wages till a condition of total working hours or days is reached for a month
+#Calculate Monthly Wage Untill TotalWorkingHours Or Days is reached
 
-#Assign 0, 1 and 2 from RANDOM
-isCheck=$((RANDOM%3))
 
 #Assign Values for wage
 wagePerHour=20
@@ -21,9 +19,13 @@ do
 		totalWorkingHours=$(("$totalWorkingHours" + "$fullDayHours"))
 	elif [ $check -eq 1 ]; then
 		totalWorkingHours=$(("$totalWorkingHours" + "$halfDayHours"))
-	else
-		totalWorkingHours=$(("$totalWorkingHours" + 0))
+	fi
+		if [ "$totalWorkingHours" -ge 100 ]; then
+			totalWorkingHours=100
+		break
 	fi
 done
+
+#Display Total Working Hours with Total Wage
 totalMonthlyWage=$(("$totalWorkingHours" * "wagePerHour"))
 echo "working Hours : $totalWorkingHours and Total Wage : $totalMonthlyWage"
