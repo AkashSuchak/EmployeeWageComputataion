@@ -1,20 +1,26 @@
 #! /bin/bash
 
 #Author : Akash Suchak
-#Calculation of Employee Daily Wage
+#Calculation of FullTime and PartTime Employee Daily Wage
 
-#Assign 0 or 1 from RANDOM
-isCheck=$((RANDOM%2))
+#Assign 0, 1 and 2 from RANDOM
+isCheck=$((RANDOM%3))
 wagePerHour=20
 fullDayHours=8
+halfDayHours=4
 
 #calulation of Day Wage
-dailyWage=$((wagePerHour * fullDayHours))
+fullTimeWage=$((wagePerHour * fullDayHours))
+partTimeWage=$((wagePerHour * halfDayHours))
 
-#Employee present than he/she will get wage
+#Wage Of Full Time and PartTime Employee
 if [ "$isCheck" -eq 0 ]; then
-	echo "Employee is Present"
-	echo "Wage is : " $dailyWage
+	echo "FullTime Employee"
+	echo "Wage is : " $fullTimeWage
+
+elif [ "$isCheck" -eq 1 ]; then
+	echo "PartTime Employee"
+	echo "Wage is : " $partTimeWage
 else
 	echo "Employee is Absent"
 fi
