@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #Author : Akash Suchak
-#Calculation of FullTime and PartTime Employee Daily Wage
+#Calculation of FullTime and PartTime Employee Daily Wage Using CASE statement
 
 #Assign 0, 1 and 2 from RANDOM
 isCheck=$((RANDOM%3))
@@ -14,13 +14,17 @@ fullTimeWage=$((wagePerHour * fullDayHours))
 partTimeWage=$((wagePerHour * halfDayHours))
 
 #Wage Of Full Time and PartTime Employee
-if [ "$isCheck" -eq 0 ]; then
-	echo "FullTime Employee"
-	echo "Wage is : " $fullTimeWage
+case $isCheck in
+	0)
+		echo "FullTime Employee"
+		echo "Wage is : " $fullTimeWage
+		;;
 
-elif [ "$isCheck" -eq 1 ]; then
-	echo "PartTime Employee"
-	echo "Wage is : " $partTimeWage
-else
-	echo "Employee is Absent"
-fi
+ 	1)
+		echo "PartTime Employee"
+		echo "Wage is : " $partTimeWage
+		;;
+	*)
+		echo "Employee is Absent"
+		;;
+esac
