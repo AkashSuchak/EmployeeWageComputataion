@@ -4,7 +4,6 @@
 #Store Daily wage along with Total wage
 
 function totalWage(){
-
 	#Assign Values for wage
 	wagePerHour=20
 	fullDayHours=8
