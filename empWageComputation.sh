@@ -1,7 +1,13 @@
 #! /bin/bash
 
 #Author : Akash Suchak
-#Displaying Welcome to Employee wage Computation Program
+#Check Employee is Present or Absent
 
-#Display Welcome Message
-echo "Welcome to sEmployee wage Computation Program"
+#Assign 0 or 1 from RANDOM
+isCheck=$((RANDOM%2))
+
+#Condition to check Present or Absent
+if [ "$ischeck" -eq 0 ]; then
+	echo "Employee is Present"
+else
+	echo "Employee is Absent"
